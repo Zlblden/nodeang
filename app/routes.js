@@ -9,33 +9,25 @@ module.exports = function(app) {
         Tasks.create({
             text:req.body.text,
             done:false
-        }, function(err){
+        }, function(err, result){
             if (err) res.send(err);
-
-            Tasks.find(function(err,tasks){
-                if (err) res.send(err);
-                res.json(tasks);
-            })
+            res.json(result)
         })
     });
 
     app.get('/api/tasks', function(req, res){
         Tasks.find(function(err, tasks){
-            if (err) res.send(err)
+            if (err) res.send(err);
             res.json(tasks);
         })
 
     });
     app.delete('/api/tasks/:task_id', function(req, res){
-        Tasks.remove({
+        Tasks.findOneAndRemove({
             _id: req.params.task_id
-        }, function(err){
+        }, function(err, result){
             if (err) res.send(err);
-
-            Tasks.find(function(err,tasks){
-                if (err) res.send(err);
-                res.json(tasks);
-            })
+            res.json(result);
         })
     })
 

@@ -6,6 +6,7 @@ angular.module('todoApp', [])
     $http.get('/api/tasks')
         .success(function(data) {
             $scope.tasks = data;
+            console.log(data)
         })
         .error(function(data) {
             console.log('Error: ' + data);
@@ -15,16 +16,16 @@ angular.module('todoApp', [])
         $http.post('/api/tasks', $scope.taskData)
             .success(function(data) {
                 $scope.taskData = {};
-                $scope.tasks = data;
+                $scope.tasks.push(data);
             })
             .error(function(data) {
                 console.log('Error: ' + data);
             });
     };
-        $scope.deleteTask = function(id) {
+        $scope.deleteTask = function(id,index) {
             $http.delete('/api/tasks/'+id)
-                .success(function(data) {
-                    $scope.tasks = data;
+                .success(function() {
+                    $scope.tasks.splice(index,1);
                 })
                 .error(function(data) {
                     console.log('Error: ' + data);

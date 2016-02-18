@@ -25,7 +25,7 @@
                 <li class="list-group-item">Для создания задачи, заполните форму снизу и нажмите Go!, для удаления, нажмите на саму задачу</li>
             </ul>
             <div class="list-group col-lg-6 col-lg-offset-3">
-                <button type="button" class="list-group-item" ng-click="deleteTask(task._id)" ng-repeat="task in tasks">
+                <button type="button" class="list-group-item" ng-click="deleteTask(task._id, $index)" ng-repeat="task in tasks">
                     {{task.text}}
                 </button>
                 <div class="col-lg-12 top-buffer">
