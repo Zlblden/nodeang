@@ -5,6 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="./css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <script src="./js/jquery-2.2.0.min.js"></script>
     <script src="./js/angular.min.js"></script>
     <script src="./js/task.js"></script>
@@ -27,7 +28,7 @@
                 <button type="button" class="list-group-item" ng-click="deleteTask(task._id)" ng-repeat="task in tasks">
                     {{task.text}}
                 </button>
-                <div class="col-lg-12">
+                <div class="col-lg-12 top-buffer">
                     <div class="input-group">
                         <input type="text" class="form-control" ng-model="taskData.text" placeholder="i wanna ride the pony">
                 <span class="input-group-btn">
