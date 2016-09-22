@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 
-mongoose.connect(database.url);
+mongoose.connect(database.url)
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({'extended':'true'})); 			// parse application/x-www-form-urlencoded
